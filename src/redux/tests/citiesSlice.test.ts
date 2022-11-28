@@ -14,10 +14,13 @@ const citiesState: CitiesStateI = {
     apiKey: '1b0a340168db93a5a6d8f9db271a81ed',
     units: 'metric',
     citiesCards: [{
-        main: {temp: 12, humidity: 90, pressure: 1000, feels_like: 10},
+        temp: 12, humidity: 90,
+        pressure: 1000,
+        feels_like: 10,
         name: 'city',
-        sys: {country: 'UA'},
-        weather: [{description: 'clear sky', main: 'clear'}]
+        country: 'UA',
+        weather_description: 'clear sky',
+        weather_main: 'clear'
     }]
 }
 

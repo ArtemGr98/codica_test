@@ -14,7 +14,7 @@ const Header: FC = () => {
     }
 
     return (
-        <AppBar color="default">
+        <AppBar color="default" position="static">
             <Toolbar sx={{justifyContent: 'center'}}>
                 <form onSubmit={handleAddCity}>
                     <Box sx={{display: 'flex', alignItems: 'stretch'}}>

@@ -18,16 +18,7 @@ const Cities = () => {
     return (
         <Grid container spacing={2}>
             {citiesCards && citiesCards.map(city =>
-                <CityCard key={city.name} cityWeatherData={{
-                    name: city.name,
-                    weather_main: city.weather[0].main,
-                    weather_description: city.weather[0].description,
-                    temp: city.main.temp,
-                    country: city.sys.country,
-                    humidity: city.main.humidity,
-                    pressure: city.main.pressure,
-                    feels_like: city.main.feels_like
-                }} />)}
+                <CityCard key={city.name} cityCardWeather={city} />)}
         </Grid>
     )
 }

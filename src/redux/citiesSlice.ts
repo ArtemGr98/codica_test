@@ -1,15 +1,16 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {cityWeatherApi, CityWeatherResponseI} from '../api/cityWeatherApi'
+import {cityWeatherApi} from '../api/cityWeatherApi'
 import {RootState} from './store'
 import {AxiosError} from 'axios'
 import {findIndexCity, getLocalStorageCities} from './helpers'
+import {CityCardWeatherI, CityWeatherResponseI} from "../types/types";
 
 export interface CitiesStateI {
     loading: boolean,
     error: undefined | string,
     apiKey: string,
     units: string,
-    citiesCards: CityWeatherResponseI[]
+    citiesCards: CityCardWeatherI[]
 }
 
 const initialState: CitiesStateI = {
@@ -57,6 +58,9 @@ export const citiesSlice = createSlice({
             cities.length ?
                 localStorage.setItem('cities', JSON.stringify(cities)) :
                 localStorage.removeItem('cities')
+        },
+        resetError: (state) => {
+            state.error = undefined
         }
     },
     extraReducers: (builder) => {
@@ -68,36 +72,21 @@ export const citiesSlice = createSlice({
             .addCase(getCityWeatherAsync.fulfilled, (state, {payload}) => {
                 state.loading = false
 
+                const objCityWeather = {
+                    name: payload.name,
+                    temp: payload.main.temp,
+                    humidity: payload.main.humidity,
+                    pressure: payload.main.pressure,
+                    feels_like: payload.main.feels_like,
+                    country: payload.sys.country,
+                    weather_main: payload.weather[0].main,
+                    weather_description: payload.weather[0].description
+                }
+
                 const isNewCity = findIndexCity(state.citiesCards, payload.name)
                 isNewCity === -1 ?
-                    state.citiesCards.push({
-                        name: payload.name,
-                        main: {
-                            temp: payload.main.temp,
-                            humidity: payload.main.humidity,
-                            pressure: payload.main.pressure,
-                            feels_like: payload.main.feels_like
-                        },
-                        sys: {country: payload.sys.country},
-                        weather: [{
-                            main: payload.weather[0].main,
-                            description: payload.weather[0].description
-                        }]
-                    }) :
-                    state.citiesCards[isNewCity] = {
-                        name: payload.name,
-                        main: {
-                            temp: payload.main.temp,
-                            humidity: payload.main.humidity,
-                            pressure: payload.main.pressure,
-                            feels_like: payload.main.feels_like
-                        },
-                        sys: {country: payload.sys.country},
-                        weather: [{
-                            main: payload.weather[0].main,
-                            description: payload.weather[0].description
-                        }]
-                    }
+                    state.citiesCards.push(objCityWeather) :
+                    state.citiesCards[isNewCity] = objCityWeather
             })
             .addCase(getCityWeatherAsync.rejected, (state, action) => {
                 state.loading = false
@@ -106,8 +95,5 @@ export const citiesSlice = createSlice({
     },
 })
 
-
-
-
-export const {removeCity} = citiesSlice.actions
+export const {removeCity, resetError} = citiesSlice.actions
 export default citiesSlice.reducer

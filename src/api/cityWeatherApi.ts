@@ -1,23 +1,5 @@
 import {instance} from './instance'
-
-export interface CityWeatherResponseI {
-    main: {
-        temp: number,
-        humidity: number,
-        pressure: number,
-        feels_like: number
-    },
-    name: string,
-    sys: {
-        country: string
-    },
-    weather: [
-        {
-            description: string,
-            main: string
-        }
-    ]
-}
+import {CityWeatherResponseI} from "../types/types";
 
 export const cityWeatherApi = {
     getCityWeather: (city: string, units: string, apiKey: string) => {

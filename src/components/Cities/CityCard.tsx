@@ -9,16 +9,12 @@ import {
     CardContent,
     Grid,
     IconButton,
-    IconButtonProps,
     styled,
     Typography
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import DeleteIcon from '@mui/icons-material/Delete'
-
-interface ExpandMoreProps extends IconButtonProps {
-    expand: boolean;
-}
+import {CityCardWeatherI, ExpandMoreProps} from "../../types/types";
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
     const {expand, ...other} = props
@@ -31,28 +27,15 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
 }))
 
-export interface CityWeatherDataI {
-    name: string,
-    temp: number,
-    country: string,
-    weather_main: string,
-
-    weather_description: string,
-    humidity: number,
-    pressure: number,
-    feels_like: number
-}
-
 interface CityCardProps {
-    cityWeatherData: CityWeatherDataI
+    cityCardWeather: CityCardWeatherI
 }
 
-
-const CityCard: FC<CityCardProps> = ({cityWeatherData}) => {
+const CityCard: FC<CityCardProps> = ({cityCardWeather}) => {
     const {
         name, temp, country, weather_main,
         weather_description, humidity, feels_like, pressure
-    } = cityWeatherData
+    } = cityCardWeather
 
     const [expanded, setExpanded] = useState(false)
     const dispatch = useAppDispatch()
