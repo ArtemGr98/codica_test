@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/codica_test/static/css/main.9071bff3.css",
+    "main.js": "/codica_test/static/js/main.ec3c867c.js",
+    "static/js/787.3a4e04a2.chunk.js": "/codica_test/static/js/787.3a4e04a2.chunk.js",
+    "index.html": "/codica_test/index.html",
+    "main.9071bff3.css.map": "/codica_test/static/css/main.9071bff3.css.map",
+    "main.ec3c867c.js.map": "/codica_test/static/js/main.ec3c867c.js.map",
+    "787.3a4e04a2.chunk.js.map": "/codica_test/static/js/787.3a4e04a2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9071bff3.css",
+    "static/js/main.ec3c867c.js"
+  ]
+}
