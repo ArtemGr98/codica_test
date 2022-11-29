@@ -8,20 +8,23 @@ const initialCitiesState: CitiesStateI = {
     citiesCards: []
 }
 
+const mockCityWeather = {
+    temp: 12,
+    humidity: 90,
+    pressure: 1000,
+    feels_like: 10,
+    name: 'City',
+    country: 'UA',
+    weather_description: 'clear sky',
+    weather_main: 'clear'
+}
+
 const citiesState: CitiesStateI = {
     loading: false,
     error: undefined,
     apiKey: '1b0a340168db93a5a6d8f9db271a81ed',
     units: 'metric',
-    citiesCards: [{
-        temp: 12, humidity: 90,
-        pressure: 1000,
-        feels_like: 10,
-        name: 'city',
-        country: 'UA',
-        weather_description: 'clear sky',
-        weather_main: 'clear'
-    }]
+    citiesCards: [mockCityWeather]
 }
 
 describe('citiesSlice', () => {

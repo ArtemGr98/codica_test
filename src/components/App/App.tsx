@@ -2,9 +2,9 @@ import './App.css'
 import Header from '../Header/Header'
 import Cities from '../Cities/Cities'
 import {Alert, CircularProgress, Container, LinearProgress, Modal} from '@mui/material'
-import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
-import {useState} from "react";
-import {resetError} from "../../redux/citiesSlice";
+import {useAppDispatch, useAppSelector} from '../../hooks/hooks'
+import {useState} from 'react'
+import {resetError} from '../../redux/citiesSlice'
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -16,7 +16,7 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-};
+}
 
 function App() {
     const [isOpen, setIsOpen] = useState(true)

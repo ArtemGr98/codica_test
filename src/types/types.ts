@@ -1,4 +1,4 @@
-import {IconButtonProps} from "@mui/material";
+import {IconButtonProps} from '@mui/material'
 
 export interface CityCardWeatherI {
     name: string,

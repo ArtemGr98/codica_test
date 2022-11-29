@@ -1,5 +1,5 @@
 import {instance} from './instance'
-import {CityWeatherResponseI} from "../types/types";
+import {CityWeatherResponseI} from '../types/types'
 
 export const cityWeatherApi = {
     getCityWeather: (city: string, units: string, apiKey: string) => {

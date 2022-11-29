@@ -3,7 +3,7 @@ import {cityWeatherApi} from '../api/cityWeatherApi'
 import {RootState} from './store'
 import {AxiosError} from 'axios'
 import {findIndexCity, getLocalStorageCities} from './helpers'
-import {CityCardWeatherI, CityWeatherResponseI} from "../types/types";
+import {CityCardWeatherI, CityWeatherResponseI} from '../types/types'
 
 export interface CitiesStateI {
     loading: boolean,

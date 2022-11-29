@@ -14,7 +14,7 @@ import {
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import DeleteIcon from '@mui/icons-material/Delete'
-import {CityCardWeatherI, ExpandMoreProps} from "../../types/types";
+import {CityCardWeatherI, ExpandMoreProps} from '../../types/types'
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
     const {expand, ...other} = props
